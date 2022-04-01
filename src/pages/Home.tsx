@@ -11,20 +11,20 @@ import { Button } from "../components/Button";
 import { SkillCard } from "../components/SkillCard";
 
 interface SkillData {
-  id: string
-  name: string
+  id: string;
+  name: string;
 }
 
 export function Home() {
-  const [newSkill, setNewSkill] = useState('');
+  const [newSkill, setNewSkill] = useState("");
   const [mySkills, setMySkills] = useState<SkillData[]>([]);
-  const [gretting, setGretting] = useState('');
+  const [gretting, setGretting] = useState("");
 
   function handleAddNewSkill() {
     const data = {
       id: String(new Date().getTime()),
-      name: newSkill
-    }
+      name: newSkill,
+    };
 
     setMySkills((oldState) => [...oldState, data]);
   }
@@ -51,7 +51,7 @@ export function Home() {
         placeholderTextColor="#555"
         onChangeText={setNewSkill}
       />
-      <Button onPress={handleAddNewSkill} />
+      <Button title="Add" onPress={handleAddNewSkill} />
 
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
       <FlatList
